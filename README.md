@@ -28,19 +28,19 @@ If you do not want to manually install these dependencies you can run the pipeli
 
 The pipeline can be downloaded via the nextflow pull command
 ```bash
-nextflow pull ggruber193/automated-window-sliding
+nextflow pull enesBerkSakalli/automated-window-sliding
 ```
 which automatically pulls the latest version of the pipeline into the folder `$HOME/.nextflow/assets` on your computer. This command is also used to update the pipeline to the latest version.
 
 Alternatively the nextflow run command can be used to pull the pipeline and then run it immediately 
 ```bash
-nextflow run ggruber193/automated-window-sliding <additional options>
+nextflow run enesBerkSakalli/automated-window-sliding <additional options>
 ```
 
 You can also clone the repository and use the pipeline this way. Here you have to use the `nextflow run` and provide the path to the `main.nf` file.
 
 ```bash
-git clone https://github.com/ggruber193/automated-window-sliding.git
+git clone https://github.com/enesBerkSakalli/automated-window-sliding.git
 ```
 
 ```bash
@@ -53,7 +53,7 @@ nextflow run <path/to/cloned/repository>/main.nf <additional options>
 To check if everything works correctly the pipeline can be run on a minimal test case by using `-profile test`:
 
 ```bash
-nextflow run ggruber193/automated-window-sliding -profile test -outdir <OUTDIR>
+nextflow run enesBerkSakalli/automated-window-sliding -profile test -outdir <OUTDIR>
 ```
 
 You can use multiple profile options in a single run, for example `-profile test,docker` to run the minimal test case with docker.
@@ -61,12 +61,12 @@ You can use multiple profile options in a single run, for example `-profile test
 To run the pipeline on your own data provide a multiple sequence alignment (only accepts FASTA, PHYLIP, NEXUS, MSF, CLUSTAL) with `--input`:
 
 ```bash
-nextflow run ggruber193/automated-window-sliding --input <ALIGNMENT> --outdir <OUTDIR>
+nextflow run enesBerkSakalli/automated-window-sliding --input <ALIGNMENT> --outdir <OUTDIR>
 ```
 
 To view available pipeline parameters use:
 ```bash
-nextflow run ggruber193/automated-window-sliding --help
+nextflow run enesBerkSakalli/automated-window-sliding --help
 ```
 
 For more information about the usage and output of the pipeline refer to the full [Documentation](docs/README.md) of this project.
