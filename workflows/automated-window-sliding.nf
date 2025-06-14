@@ -30,6 +30,17 @@ include { CollectTrees   } from '../modules/local/collect_trees'
 
 workflow AutomatedWindowSliding {
 
+    // Imports for unique directory generation
+    import java.text.SimpleDateFormat
+    import java.util.Date
+
+    // Construct unique output directory
+    def inputFile = file(params.input)
+    def inputFileBasename = inputFile.getBaseName()
+    def timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+    def unique_outdir = "${params.outdir}/${inputFileBasename}_w${params.window_size}_s${params.step_size}_${timestamp}"
+    new File(unique_outdir).mkdirs()
+
     // -- MAIN WORKFLOW --
 
     input_alignment = Channel.fromPath(params.input)
@@ -42,13 +53,15 @@ workflow AutomatedWindowSliding {
         custom_windows_file = Channel.fromPath("${projectDir}/assets/NO_FILE")
     }
 
-    sliding_window_output = SlidingWindow(input_alignment, custom_windows_file)
+    // Updated SlidingWindow call to include unique_outdir
+    sliding_window_output = SlidingWindow(input_alignment, custom_windows_file, unique_outdir)
+
 
     // collect a overview of the windows
-    sliding_window_output.log.collectFile(storeDir: "${params.outdir}")
+    sliding_window_output.log.collectFile(storeDir: unique_outdir)
     
     // collect the removed sequences for each window
-    sliding_window_output.removed_sequences.collectFile(storeDir: "${params.outdir}")
+    sliding_window_output.removed_sequences.collectFile(storeDir: unique_outdir)
 
     // caluculate the relative length for each window of the total length of all windows for resource allocation
     window_lengths = sliding_window_output.log.splitCsv(sep: '\t', header: true).map({ row -> tuple(row.name, row.win_len.toFloat())})
@@ -71,12 +84,13 @@ workflow AutomatedWindowSliding {
             // use dummy channel to satisfy input cardinality
             model_finder_input = input_alignment.combine(Channel.from([1]))
         }
+        // ModelSelection module call - assuming no publishDir changes needed within it for now
         evolutionary_model = ModelSelection(model_finder_input, num_windows)
 
         // output tsv file with models for each window
-        evolutionary_model.model_tuple.map({"${it[0]}\t${it[1].text}"}).collectFile(name: 'models.txt', storeDir: "${params.outdir}", sort: {it.split('\t')[0].isInteger()?it.split('\t')[0].toInteger():it.split('\t')[0]})
-        evolutionary_model.log.collectFile(storeDir: "${params.outdir}/model_finder_logs/logs")
-        evolutionary_model.iqtree.collectFile(storeDir: "${params.outdir}/model_finder_logs/iqtree")
+        evolutionary_model.model_tuple.map({"${it[0]}\t${it[1].text}"}).collectFile(name: 'models.txt', storeDir: unique_outdir, sort: {it.split('\t')[0].isInteger()?it.split('\t')[0].toInteger():it.split('\t')[0]})
+        evolutionary_model.log.collectFile(storeDir: "${unique_outdir}/model_finder_logs/logs")
+        evolutionary_model.iqtree.collectFile(storeDir: "${unique_outdir}/model_finder_logs/iqtree")
     }
 
     // prepare the input for tree reconstruction -> combine alignment windows with evolutionary model
@@ -102,11 +116,13 @@ workflow AutomatedWindowSliding {
     // new process should have a output channel containing the reconstructed trees. Assign this output channel to a new channel called treefiles.
 
     if ( params.phylo_method == "iqtree2" ) {
+        // IQTREE2 module call - will update later if module needs unique_outdir param
         tree = IQTREE2(tree_input, num_windows)
         treefiles = tree.treefile
         contrees = tree.consensus_tree
-        tree.iqtree.collectFile(storeDir: "${params.outdir}/tree_reconstruction_logs/iqtree_files")
+        tree.iqtree.collectFile(storeDir: "${unique_outdir}/tree_reconstruction_logs/iqtree_files")
     } else if ( params.phylo_method == "raxml-ng" ) {
+        // RAXMLNG module call - will update later if module needs unique_outdir param
         tree = RAXMLNG(tree_input, num_windows)
         treefiles = tree.best_tree
         contrees = tree.consensus_tree
@@ -114,7 +130,7 @@ workflow AutomatedWindowSliding {
         throw new Error("Phylogenetic Program'${params.phylo_method}' not supported")
     }
 
-    tree.log.collectFile(storeDir: "${params.outdir}/tree_reconstruction_logs/logs")
+    tree.log.collectFile(storeDir: "${unique_outdir}/tree_reconstruction_logs/logs")
     treefiles = treefiles.collect().map( {tuple("best_trees", it)} )
     contrees = contrees.collect().map( {tuple("consensus_trees", it)} )
     trees = treefiles.concat(contrees)
@@ -129,7 +145,7 @@ workflow AutomatedWindowSliding {
         trees = trees.map({tuple(it[0], it[1].toSorted({elem -> elem.simpleName.toInteger()}))})
     }
 
-
+    // CollectTrees module call - will update later if module needs unique_outdir param
     CollectTrees(trees)
 }
 
