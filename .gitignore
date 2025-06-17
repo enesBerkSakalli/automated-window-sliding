@@ -1,5 +1,8 @@
 .nextflow*
 work/
+logs/work/
+logs/trace/
+logs/process/
 data/
 results/
 .DS_Store

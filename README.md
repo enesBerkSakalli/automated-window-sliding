@@ -47,7 +47,6 @@ git clone https://github.com/enesBerkSakalli/automated-window-sliding.git
 nextflow run <path/to/cloned/repository>/main.nf <additional options>
 ```
 
-
 ## Usage
 
 To check if everything works correctly the pipeline can be run on a minimal test case by using `-profile test`:
@@ -69,10 +68,101 @@ To view available pipeline parameters use:
 nextflow run enesBerkSakalli/automated-window-sliding --help
 ```
 
+### Key Parameters
+
+**Basic Options:**
+- `--input` - Input alignment file (FASTA, PHYLIP, NEXUS, MSF, CLUSTAL)
+- `--outdir` - Output directory for results
+- `--window_size` - Size of sliding windows (default: 500)
+- `--step_size` - Step size between windows (default: 100)
+
+**Tree Rooting Options:**
+- `--mad_rooting` - Enable MAD rooting with RootDigger (default: true)
+- `--rootdigger_strategy` - Rooting strategy: `modified-mad` (default), `midpoint`, `random`
+- `--rootdigger_exhaustive` - Enable exhaustive search for higher accuracy (default: false, slower)
+
+**Analysis Options:**
+- `--phylo_method` - Tree inference method: `iqtree2` (default) or `raxml-ng`
+- `--model_criterion` - Model selection criterion: `bic` (default), `aic`, `aicc`
+- `--output_format` - Output format: `nexus,newick` (default), `nexus`, `newick`
+
+For complete parameter documentation, see the [Usage Guide](docs/usage.md) and [RootDigger Optimization Guide](docs/rootdigger_optimization.md).
+
 For more information about the usage and output of the pipeline refer to the full [Documentation](docs/README.md) of this project.
 
 In addition to the pipeline specific parameters there are several parameters that Nextflow provides. These are invoked with a single dash, e.g. `-resume` to resume a previously failed pipeline run or `-qs <int>` to limit the number of parallel processes. For a full overview of Nextflow CLI parameters please refer to [this page](https://www.nextflow.io/docs/latest/cli.html) or use `nextflow run -h`
 
+## 🔍 Output Structure
+
+Each analysis run creates a timestamped output directory containing:
+
+### Core Analysis Files
+
+* **`original_alignment_<filename>.fasta`** - Copy of the input alignment for reproducibility
+* **`analysis_metadata.txt`** - Complete metadata about the analysis parameters and environment
+* **`models.txt`** - Selected evolutionary models for each window
+* **`windows.txt`** - Window coordinates and statistics
+* **`removed_sequences.txt`** - Sequences removed from each window
+
+### Tree Files
+
+* **`trees_<format>.txt`** - Combined tree files in specified format(s)
+* **`rooted_trees/`** - MAD-rooted trees (if rooting enabled)
+* **Individual window trees** - Separate tree files for each sliding window
+
+### Logs and Reports
+
+* **`model_finder_logs/`** - Model selection logs and IQ-TREE output
+* **Process-specific logs** - Detailed execution logs for debugging
+
+### Example Output Directory
+
+```text
+results/
+└── aligned_norovirus_sequences_w500_s100_GTR_G_I_20250617_143022/
+    ├── original_alignment_aligned_norovirus_sequences.fasta
+    ├── analysis_metadata.txt
+    ├── models.txt
+    ├── windows.txt
+    ├── removed_sequences.txt
+    ├── trees_nexus.txt
+    ├── rooted_trees/
+    │   ├── window_1_rooted.tree
+    │   └── ...
+    └── model_finder_logs/
+        ├── logs/
+        └── iqtree/
+```
+
+## 📊 Log Management
+
+The pipeline automatically organizes all logs and work files in a dedicated `logs/` directory to keep the project root clean:
+
+* `logs/work/` - Nextflow work directory with task execution files
+* `logs/trace/` - Execution reports, timelines, and DAG visualizations
+* `logs/process/` - Individual process logs
+
+### Viewing Execution Reports
+
+After pipeline completion, view detailed execution reports:
+
+* `logs/trace/execution_report.html` - Comprehensive execution statistics
+* `logs/trace/execution_timeline.html` - Timeline visualization
+* `logs/trace/pipeline_dag.html` - Pipeline DAG visualization
+
+### Cleaning Logs
+
+To clean up logs from previous runs:
+
+```bash
+./clean-logs.sh
+```
+
+Or manually:
+
+```bash
+rm -rf logs/work/* logs/trace/*
+```
 
 ## Citations
 

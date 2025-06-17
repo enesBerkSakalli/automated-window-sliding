@@ -154,4 +154,11 @@ class NfcoreTemplate {
             """.stripIndent()
         )
     }
+
+    //
+    // Get workflow version
+    //
+    public static String version(workflow) {
+        return workflow.manifest.version ?: "dev"
+    }
 }

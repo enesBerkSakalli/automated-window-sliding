@@ -4,6 +4,9 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+import java.text.SimpleDateFormat
+import java.util.Date
+
 include { paramsSummaryLog; paramsSummaryMap } from 'plugin/nf-validation'
 
 def summary_params = paramsSummaryMap(workflow)
@@ -16,11 +19,13 @@ def summary_params = paramsSummaryMap(workflow)
 */
 
 
-include { SlidingWindow  } from '../modules/local/sliding_window'
-include { ModelSelection } from '../modules/local/model_finder'
-include { IQTREE2        } from '../modules/local/tree_reconstruction/iqtree2'
-include { RAXMLNG        } from '../modules/local/tree_reconstruction/raxmlng'
-include { CollectTrees   } from '../modules/local/collect_trees'
+include { SlidingWindow      } from '../modules/local/sliding_window'
+include { ModelSelection     } from '../modules/local/model_finder'
+include { IQTREE2            } from '../modules/local/tree_reconstruction/iqtree2'
+include { RAXMLNG            } from '../modules/local/tree_reconstruction/raxmlng'
+include { CollectTrees       } from '../modules/local/collect_trees'
+include { MAD_ROOTING        } from '../modules/local/mad_rooting'
+include { COLLECT_ROOTED_TREES } from '../modules/local/collect_rooted_trees'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,20 +35,74 @@ include { CollectTrees   } from '../modules/local/collect_trees'
 
 workflow AutomatedWindowSliding {
 
-    // Imports for unique directory generation
-    import java.text.SimpleDateFormat
-    import java.util.Date
-
-    // Construct unique output directory
+    // Construct unique output directory with model information
     def inputFile = file(params.input)
     def inputFileBasename = inputFile.getBaseName()
     def timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
-    def unique_outdir = "${params.outdir}/${inputFileBasename}_w${params.window_size}_s${params.step_size}_${timestamp}"
+    def modelName = params.model ? params.model.replaceAll('[+/]', '_') : 'auto'
+    def unique_outdir = "${params.outdir}/${inputFileBasename}_w${params.window_size}_s${params.step_size}_${modelName}_${timestamp}"
     new File(unique_outdir).mkdirs()
 
-    // -- MAIN WORKFLOW --
+    // Preserve original alignment in output directory for reproducibility
+    process CopyOriginalAlignment {
+        publishDir unique_outdir, mode: 'copy'
+        
+        input:
+        path(alignment)
+        
+        output:
+        path("original_alignment_${inputFileBasename}.fasta")
+        
+        script:
+        """
+        cp ${alignment} original_alignment_${inputFileBasename}.fasta
+        """
+    }
+    
+    // Generate analysis metadata for reproducibility
+    process GenerateAnalysisMetadata {
+        publishDir unique_outdir, mode: 'copy'
+        
+        output:
+        path("analysis_metadata.txt")
+        
+        script:
+        """
+        cat > analysis_metadata.txt << EOF
+# Sliding Window Phylogenetic Analysis Metadata
+# Generated: \$(date)
 
+## Input Data
+Original alignment file: ${params.input}
+Original filename: ${inputFileBasename}.fasta
+
+## Analysis Parameters
+Window size: ${params.window_size}
+Step size: ${params.step_size}
+Evolutionary model: ${params.model ?: 'Auto-detected'}
+MAD rooting enabled: ${params.mad_rooting}
+Output format: ${params.output_format}
+
+## Pipeline Information
+Nextflow version: ${workflow.nextflow.version}
+Pipeline version: ${workflow.manifest.version}
+Command line: ${workflow.commandLine}
+Work directory: ${workflow.workDir}
+Launch directory: ${workflow.launchDir}
+
+## System Information
+Container: ${workflow.container}
+Profile: ${workflow.profile}
+EOF
+        """
+    }
+    
+    // Copy the original alignment to results
     input_alignment = Channel.fromPath(params.input)
+    original_alignment_copy = CopyOriginalAlignment(input_alignment)
+    analysis_metadata = GenerateAnalysisMetadata()
+
+    // -- MAIN WORKFLOW --
 
     // check if a file with custom windows was provided -> if not the dummy file NO_FILE is used
     // needs to be done because there is no option for optional input channels
@@ -53,8 +112,8 @@ workflow AutomatedWindowSliding {
         custom_windows_file = Channel.fromPath("${projectDir}/assets/NO_FILE")
     }
 
-    // Updated SlidingWindow call to include unique_outdir
-    sliding_window_output = SlidingWindow(input_alignment, custom_windows_file, unique_outdir)
+    // SlidingWindow call
+    sliding_window_output = SlidingWindow(input_alignment, custom_windows_file)
 
 
     // collect a overview of the windows
@@ -135,6 +194,40 @@ workflow AutomatedWindowSliding {
     contrees = contrees.collect().map( {tuple("consensus_trees", it)} )
     trees = treefiles.concat(contrees)
 
+    // MAD rooting for best trees (if enabled)
+    if (params.mad_rooting) {
+        // Create a map of alignment files by their base names
+        alignment_map = alignment_windows.flatten()
+            .map { alignment_file -> 
+                def window_name = alignment_file.simpleName
+                tuple(window_name, alignment_file)
+            }
+        
+        // Extract only the best trees for rooting (not consensus trees)
+        best_trees_for_rooting = tree.treefile
+            .flatten()
+            .map { tree_file -> 
+                def window_name = tree_file.simpleName
+                tuple(window_name, tree_file)
+            }
+        
+        // Combine trees with their corresponding alignments
+        trees_with_alignments = best_trees_for_rooting.join(alignment_map)
+            .map { window_name, tree_file, alignment_file ->
+                tuple(window_name, tree_file, alignment_file)
+            }
+        
+        // Apply MAD rooting to best trees with alignments
+        rooted_trees = MAD_ROOTING(trees_with_alignments, unique_outdir)
+        
+        // Collect rooted trees and generate reports
+        rooted_collection = COLLECT_ROOTED_TREES(
+            rooted_trees.rooted_trees.map{it[1]}.collect(),
+            rooted_trees.logs.collect(),
+            unique_outdir,
+            params.output_format
+        )
+    }
 
     // sort the trees by the midpoint position of the window
     if (params.window_file) {

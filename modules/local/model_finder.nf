@@ -33,6 +33,6 @@ process ModelSelection {
 
     """
     iqtree2 -T AUTO -ntmax ${task.cpus} -s ${alignment} -n 0 -m MF ${args}
-    zcat ${alignment}.model.gz | grep -e "best_model_${model_criterion}:" | cut -d' ' -f2 > ${alignment}.model.txt
+    gzip -dc ${alignment}.model.gz | grep -e "best_model_${model_criterion}:" | cut -d' ' -f2 > ${alignment}.model.txt
     """
 }
