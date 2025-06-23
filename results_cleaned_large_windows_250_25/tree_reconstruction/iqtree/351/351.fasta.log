@@ -1,0 +1,270 @@
+IQ-TREE multicore version 2.4.0 for MacOS ARM 64-bit built Mar  8 2025
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor, Heiko Schmidt,
+Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
+
+Host:    Mac.telekom.ip (SSE4.2, 16 GB RAM)
+Command: iqtree2 --quiet -T AUTO -ntmax 4 -s 351.fasta -m GTR+F+I+G4
+Seed:    383917 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sun Jun 22 19:02:14 2025
+Kernel:  SSE2 - auto-detect threads (12 CPU cores detected)
+
+Reading alignment file 351.fasta ... Fasta format detected
+Reading fasta file: done in 0.000268936 secs using 88.87% CPU
+Alignment most likely contains DNA/RNA sequences
+Alignment has 84 sequences with 250 columns, 132 distinct patterns
+130 parsimony-informative, 4 singleton sites, 116 constant sites
+            Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 7.10487e-05 secs using 61.93% CPU
+   1  KR074148.1    0.00%    passed     96.12%
+   2  KR074149.1    0.00%    passed     57.60%
+   3  KR074150.1    0.00%    passed     98.57%
+   4  KR074151.1    0.00%    passed     68.03%
+   5  KR074152.1    0.00%    passed     74.15%
+   6  KR074153.1    0.00%    passed     67.67%
+   7  KR074154.1    0.00%    passed     69.01%
+   8  KR074155.1    0.00%    passed     77.87%
+   9  KR074156.1    0.00%    passed     93.88%
+  10  KR074157.1    0.00%    passed     93.88%
+  11  KR074158.1    0.00%    passed     95.60%
+  12  KR074159.1    0.00%    passed     83.30%
+  13  KR074160.1    0.00%    passed     92.12%
+  14  KR074161.1    0.00%    passed     91.67%
+  15  KR074162.1    0.00%    passed     91.67%
+  16  KR074163.1    0.00%    passed     81.42%
+  17  KR074164.1    0.00%    passed     69.47%
+  18  KR074165.1    0.00%    passed     95.85%
+  19  KR074166.1    0.00%    passed     93.15%
+  20  KR074167.1    0.00%    passed     95.85%
+  21  KR074168.1    0.00%    passed     91.60%
+  22  KR074169.1    0.00%    passed     91.60%
+  23  KR074170.1    0.00%    passed     87.31%
+  24  KR074171.1    0.00%    passed     85.95%
+  25  KR074172.1    0.00%    passed     92.12%
+  26  KR074173.1    0.00%    passed     86.08%
+  27  KR074174.1    0.00%    passed     44.30%
+  28  KR074175.1    0.00%    passed     98.23%
+  29  KR074176.1    0.00%    passed     97.92%
+  30  KR074177.1    0.00%    passed     92.12%
+  31  KR074178.1    0.00%    passed     97.06%
+  32  KR074179.1    0.00%    passed     79.33%
+  33  KR074180.1    0.00%    passed     96.16%
+  34  KR074181.1    0.00%    passed     75.09%
+  35  KR074182.1    0.00%    passed     97.92%
+  36  KR074183.1    0.00%    passed     44.30%
+  37  KR074184.1    0.00%    passed     96.12%
+  38  KR074185.1    0.00%    passed     91.67%
+  39  KR074186.1    0.00%    passed     97.15%
+  40  KR074187.1    0.00%    passed     98.23%
+  41  KR074188.1    0.00%    passed     37.71%
+  42  KR074189.1    0.00%    passed     30.94%
+  43  KR074190.1    0.00%    passed     88.54%
+  44  KR074191.1    0.00%    passed     95.28%
+  45  KY451971.1    0.00%    passed     99.36%
+  46  KY451972.1    0.00%    passed     99.36%
+  47  KY451973.1    0.00%    passed     99.36%
+  48  KY451974.1    0.00%    passed     99.36%
+  49  KY451975.1    0.00%    passed     99.36%
+  50  KY451976.1    0.00%    passed     99.36%
+  51  KY451977.1    0.00%    passed     99.36%
+  52  KY451978.1    0.00%    passed     98.54%
+  53  KY451979.1    0.00%    passed     99.36%
+  54  KY451980.1    0.00%    passed     99.36%
+  55  KY451981.1    0.00%    passed     99.36%
+  56  KY451982.1    0.00%    passed     99.36%
+  57  KY451983.1    0.00%    passed     99.73%
+  58  KY451984.1    0.00%    passed     99.36%
+  59  KY451985.1    0.00%    passed     99.36%
+  60  KY451986.1    0.00%    passed     97.97%
+  61  KY451987.1    0.00%    passed     98.54%
+  62  MF158177.1    0.00%    passed     83.36%
+  63  MF158178.1    0.00%    passed     78.87%
+  64  MF158179.1    0.00%    passed     77.13%
+  65  MF158180.1    0.00%    passed     87.01%
+  66  MF158181.1    0.00%    passed     77.78%
+  67  MF158182.1    0.00%    passed     82.73%
+  68  MF158183.1    0.00%    passed     86.04%
+  69  MF158184.1    0.00%    passed     86.04%
+  70  MF158185.1    0.00%    passed     89.51%
+  71  MF158186.1    0.00%    passed     87.08%
+  72  MF158187.1    0.00%    passed     99.20%
+  73  MF158188.1    0.00%    passed     53.07%
+  74  MF158189.1    0.00%    passed     56.53%
+  75  MF158190.1    0.00%    passed     56.53%
+  76  MF158191.1    0.00%    passed     99.36%
+  77  MF158192.1    0.00%    passed     99.36%
+  78  MF158193.1    0.00%    passed     99.36%
+  79  MF158194.1    0.00%    passed     99.36%
+  80  MF158195.1    0.00%    passed     99.36%
+  81  MF158196.1    0.00%    passed     99.36%
+  82  MF158197.1    0.00%    passed     99.36%
+  83  MF158198.1    0.40%    passed     99.69%
+  84  MF158199.1    0.00%    passed     83.30%
+****  TOTAL         0.00%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: KR074157.1 is identical to KR074156.1 but kept for subsequent analysis
+NOTE: KR074177.1 is identical to KR074160.1 but kept for subsequent analysis
+NOTE: KR074162.1 is identical to KR074161.1 but kept for subsequent analysis
+NOTE: KR074167.1 is identical to KR074165.1 but kept for subsequent analysis
+NOTE: KR074183.1 is identical to KR074174.1 but kept for subsequent analysis
+NOTE: KY451972.1 is identical to KY451971.1 but kept for subsequent analysis
+NOTE: MF158184.1 is identical to MF158183.1 but kept for subsequent analysis
+NOTE: MF158190.1 is identical to MF158189.1 but kept for subsequent analysis
+NOTE: 19 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: KR074185.1 (identical to KR074161.1) is ignored but added at the end
+NOTE: KY451973.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451974.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451975.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451976.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451977.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451979.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451980.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451981.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451982.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451984.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: KY451985.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158191.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158192.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158193.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158194.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158195.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158196.1 (identical to KY451971.1) is ignored but added at the end
+NOTE: MF158197.1 (identical to KY451971.1) is ignored but added at the end
+Alignment was printed to 351.fasta.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to 351.fasta.uniqueseq.phy
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.002 seconds
+
+NOTE: 1 MB RAM (0 GB) is required!
+Measuring multi-threading efficiency up to 4 CPU cores
+Increase to 10 rounds for branch lengths
+322 trees examined
+Threads: 1 / Time: 4.007 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -6410
+Threads: 2 / Time: 11.067 sec / Speedup: 0.362 / Efficiency: 18% / LogL: -6410
+BEST NUMBER OF THREADS: 1
+
+Estimate model parameters (epsilon = 0.100)
+Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.000 / Estimate: 0.000, 0.315 / LogL: -2527.879
+Init pinv, alpha: 0.052, 1.000 / Estimate: 0.206, 0.450 / LogL: -2523.566
+Init pinv, alpha: 0.103, 1.000 / Estimate: 0.204, 0.447 / LogL: -2523.601
+Init pinv, alpha: 0.155, 1.000 / Estimate: 0.208, 0.452 / LogL: -2523.557
+Init pinv, alpha: 0.206, 1.000 / Estimate: 0.232, 0.483 / LogL: -2523.315
+Init pinv, alpha: 0.258, 1.000 / Estimate: 0.270, 0.540 / LogL: -2523.055
+Init pinv, alpha: 0.309, 1.000 / Estimate: 0.303, 0.607 / LogL: -2522.991
+Init pinv, alpha: 0.361, 1.000 / Estimate: 0.330, 0.676 / LogL: -2523.077
+Init pinv, alpha: 0.412, 1.000 / Estimate: 0.342, 0.708 / LogL: -2523.162
+Init pinv, alpha: 0.464, 1.000 / Estimate: 0.344, 0.711 / LogL: -2523.178
+Optimal pinv,alpha: 0.303, 0.607 / LogL: -2522.991
+
+Parameters optimization took 0.777 sec
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 0.00841594 secs using 98.76% CPU
+Computing ML distances took 0.008467 sec (of wall-clock time) 0.008342 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 8.89301e-05 secs using 127.1% CPU
+Computing RapidNJ tree took 0.000258 sec (of wall-clock time) 0.000395 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -2518.109
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.249 second
+Computing log-likelihood of 98 initial trees ... 0.184 seconds
+Current best score: -2514.821
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -2504.136
+Iteration 10 / LogL: -2508.992 / Time: 0h:0m:16s
+Iteration 20 / LogL: -2506.300 / Time: 0h:0m:17s
+Finish initializing candidate tree set (20)
+Current best tree score: -2504.136 / CPU time: 1.585
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -2504.331 / Time: 0h:0m:17s (0h:0m:43s left)
+BETTER TREE FOUND at iteration 32: -2504.131
+Iteration 40 / LogL: -2504.171 / Time: 0h:0m:18s (0h:0m:43s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 41: -2503.743
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 45: -2502.880
+Iteration 50 / LogL: -2504.036 / Time: 0h:0m:19s (0h:0m:36s left)
+BETTER TREE FOUND at iteration 53: -2502.878
+Iteration 60 / LogL: -2509.019 / Time: 0h:0m:19s (0h:0m:30s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 62: -2502.732
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 63: -2502.715
+Iteration 70 / LogL: -2503.471 / Time: 0h:0m:20s (0h:0m:27s left)
+BETTER TREE FOUND at iteration 72: -2502.714
+BETTER TREE FOUND at iteration 74: -2502.713
+Iteration 80 / LogL: -2508.939 / Time: 0h:0m:20s (0h:0m:24s left)
+BETTER TREE FOUND at iteration 86: -2502.713
+Iteration 90 / LogL: -2559.331 / Time: 0h:0m:21s (0h:0m:22s left)
+Iteration 100 / LogL: -2512.957 / Time: 0h:0m:21s (0h:0m:18s left)
+Iteration 110 / LogL: -2503.405 / Time: 0h:0m:22s (0h:0m:15s left)
+Iteration 120 / LogL: -2510.946 / Time: 0h:0m:22s (0h:0m:12s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 125: -2502.596
+Iteration 130 / LogL: -2504.081 / Time: 0h:0m:23s (0h:0m:17s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 136: -2502.322
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 137: -2502.293
+Iteration 140 / LogL: -2504.104 / Time: 0h:0m:23s (0h:0m:16s left)
+Iteration 150 / LogL: -2502.612 / Time: 0h:0m:24s (0h:0m:14s left)
+BETTER TREE FOUND at iteration 158: -2502.292
+Iteration 160 / LogL: -2502.613 / Time: 0h:0m:24s (0h:0m:15s left)
+Iteration 170 / LogL: -2523.454 / Time: 0h:0m:25s (0h:0m:13s left)
+Iteration 180 / LogL: -2502.294 / Time: 0h:0m:25s (0h:0m:11s left)
+Iteration 190 / LogL: -2502.293 / Time: 0h:0m:26s (0h:0m:9s left)
+Iteration 200 / LogL: -2506.887 / Time: 0h:0m:26s (0h:0m:7s left)
+Iteration 210 / LogL: -2514.539 / Time: 0h:0m:27s (0h:0m:6s left)
+Iteration 220 / LogL: -2502.292 / Time: 0h:0m:27s (0h:0m:4s left)
+Iteration 230 / LogL: -2502.766 / Time: 0h:0m:28s (0h:0m:3s left)
+BETTER TREE FOUND at iteration 231: -2502.292
+Iteration 240 / LogL: -2502.292 / Time: 0h:0m:28s (0h:0m:10s left)
+Iteration 250 / LogL: -2513.395 / Time: 0h:0m:29s (0h:0m:9s left)
+Iteration 260 / LogL: -2504.083 / Time: 0h:0m:29s (0h:0m:8s left)
+BETTER TREE FOUND at iteration 267: -2502.292
+Iteration 270 / LogL: -2502.292 / Time: 0h:0m:30s (0h:0m:10s left)
+Iteration 280 / LogL: -2552.001 / Time: 0h:0m:30s (0h:0m:9s left)
+Iteration 290 / LogL: -2502.292 / Time: 0h:0m:31s (0h:0m:8s left)
+Iteration 300 / LogL: -2502.292 / Time: 0h:0m:31s (0h:0m:7s left)
+Iteration 310 / LogL: -2502.957 / Time: 0h:0m:32s (0h:0m:5s left)
+Iteration 320 / LogL: -2503.353 / Time: 0h:0m:32s (0h:0m:4s left)
+Iteration 330 / LogL: -2502.920 / Time: 0h:0m:33s (0h:0m:3s left)
+Iteration 340 / LogL: -2511.092 / Time: 0h:0m:33s (0h:0m:2s left)
+Iteration 350 / LogL: -2502.298 / Time: 0h:0m:34s (0h:0m:1s left)
+Iteration 360 / LogL: -2502.292 / Time: 0h:0m:34s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 368 ITERATIONS / Time: 0h:0m:35s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -2502.292
+Optimal log-likelihood: -2502.291
+Rate parameters:  A-C: 1.26521  A-G: 4.13055  A-T: 1.29125  C-G: 0.50377  C-T: 6.57236  G-T: 1.00000
+Base frequencies:  A: 0.256  C: 0.240  G: 0.265  T: 0.239
+Proportion of invariable sites: 0.295
+Gamma shape alpha: 0.575
+Parameters optimization took 1 rounds (0.006 sec)
+BEST SCORE FOUND : -2502.291
+Total tree length: 4.172
+
+Total number of iterations: 368
+CPU time used for tree search: 18.926 sec (0h:0m:18s)
+Wall-clock time used for tree search: 19.151 sec (0h:0m:19s)
+Total CPU time used: 31.662 sec (0h:0m:31s)
+Total wall-clock time used: 35.043 sec (0h:0m:35s)
+
+Analysis results written to: 
+  IQ-TREE report:                351.fasta.iqtree
+  Maximum-likelihood tree:       351.fasta.treefile
+  Likelihood distances:          351.fasta.mldist
+  Screen log file:               351.fasta.log
+
+Date and Time: Sun Jun 22 19:02:49 2025

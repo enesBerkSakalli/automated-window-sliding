@@ -1,0 +1,11 @@
+{
+  "input": "enhanced_alignment_with_outgroups.fasta",
+  "window_size": 200,
+  "step_size": 15,
+  "outgroup": "M87661",
+  "tree_method": "iqtree2",
+  "model": "GTR+F+I+G4",
+  "bootstrap": 1000,
+  "rooting_method": "mad",
+  "max_branch_length": 0.1
+}

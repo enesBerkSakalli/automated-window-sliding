@@ -15,22 +15,7 @@ nextflow.enable.dsl = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { validateParameters; paramsHelp } from 'plugin/nf-validation'
-
-// Print help message if needed
-if (params.help) {
-    def logo = NfcoreTemplate.logo(workflow, params.monochrome_logs)
-    def String command = "nextflow run ${workflow.manifest.name} --input <ALIGNMENT> --outdir <OUTDIR> --window_size <int> --step_size <int>"
-    log.info paramsHelp(command)
-    System.exit(0)
-}
-
-// Validate input parameters
-if (params.validate_params) {
-    validateParameters()
-}
-
-WorkflowMain.initialise(workflow, params, log)
+// include { validateParameters; paramsHelp } from 'plugin/nf-validation'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,7 +29,7 @@ include { AutomatedWindowSliding } from './workflows/automated-window-sliding'
 // WORKFLOW: Run main automated-window-sliding analysis pipeline
 //
 workflow AutomatedWindowSlidingWorkflow {
-    AutomatedWindowSliding ()
+    AutomatedWindowSliding()
 }
 
 /*
@@ -58,11 +43,32 @@ workflow AutomatedWindowSlidingWorkflow {
 // See: https://github.com/nf-core/rnaseq/issues/619
 //
 workflow {
-    AutomatedWindowSlidingWorkflow ()
-}
+    // Print help message if needed
+    if (params.help) {
+        def logo = NfcoreTemplate.logo(workflow, params.monochrome_logs)
+        def String command = "nextflow run ${workflow.manifest.name} --input <ALIGNMENT> --outdir <OUTDIR> --window_size <int> --step_size <int>"
+        log.info(
+            logo + command + """
+        
+        NOTE: All results are automatically organized in a structured directory under the 'results/' folder.
+        Each run creates a timestamped subdirectory for reproducibility and version control.
+        
+        """.stripIndent()
+        )
+        System.exit(0)
+    }
 
-/*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    THE END
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
+    // Print workflow version and exit on --version
+    if (params.version) {
+        def String workflow_version = NfcoreTemplate.version(workflow)
+        log.info("${workflow.manifest.name} ${workflow_version}")
+        System.exit(0)
+    }
+
+    // Ensure the input file exists before processing
+    if (!file(params.input).exists()) {
+        error("Input alignment file does not exist: ${params.input}")
+    }
+
+    AutomatedWindowSlidingWorkflow()
+}

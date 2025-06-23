@@ -1,0 +1,14 @@
+{
+    "input": "${projectDir}/data/cleaned_alignment_combined.fasta",
+    "alignment_file": "${projectDir}/data/cleaned_alignment_combined.fasta",
+    "outdir": "results_cleaned_small_windows_75_5",
+    "window_size": 75,
+    "step_size": 5,
+    "run_mode": "full",
+    "backbone_midpoint_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "max_cpus": 4,
+    "publish_dir_mode": "copy",
+    "keep_tree_files": true
+}

@@ -145,6 +145,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Enable exhaustive mode in RootDigger for more thorough root placement search. More accurate but significantly slower. Recommended for smaller datasets or when high accuracy is critical."
+                },
+                "backbone_midpoint_rooting": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable backbone-constrained midpoint rooting. This method first generates a backbone tree from the full alignment, then constrains window trees to match the backbone topology before applying midpoint rooting for consistent root placement."
                 }
             },
             "required": [

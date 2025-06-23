@@ -1,0 +1,13 @@
+{
+    "input": "data/cleaned_alignment_combined.fasta",
+    "outdir": "results_cleaned_large_windows_250_10",
+    "window_size": 250,
+    "step_size": 10,
+    "run_mode": "full",
+    "backbone_midpoint_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "max_cpus": 4,
+    "publish_dir_mode": "copy",
+    "keep_tree_files": true
+}

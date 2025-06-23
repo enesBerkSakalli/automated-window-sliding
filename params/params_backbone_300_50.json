@@ -1,0 +1,13 @@
+{
+    "input": "./../data/ingroup_only_alignment.fasta",
+    "outdir": "results_nf_backbone_300_50",
+    "window_size": 300,
+    "step_size": 10,
+    "run_mode": "full",
+    "backbone_midpoint_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "max_cpus": 4,
+    "publish_dir_mode": "copy",
+    "keep_tree_files": true
+}

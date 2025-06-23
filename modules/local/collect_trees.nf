@@ -1,5 +1,5 @@
 process CollectTrees {
-    publishDir path: "${params.outdir}/", mode: params.publish_dir_mode
+    publishDir path: "${results_dir}/", mode: params.publish_dir_mode
 
     conda "conda-forge::python=3.11 bioconda::dendropy"
     container "ggruber193/automated-window-sliding-base_image"
@@ -8,6 +8,7 @@ process CollectTrees {
 
     input:
     tuple val(output_name), path(trees)
+    val results_dir
 
     output:
     path "${output_name}*"

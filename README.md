@@ -92,11 +92,33 @@ For more information about the usage and output of the pipeline refer to the ful
 
 In addition to the pipeline specific parameters there are several parameters that Nextflow provides. These are invoked with a single dash, e.g. `-resume` to resume a previously failed pipeline run or `-qs <int>` to limit the number of parallel processes. For a full overview of Nextflow CLI parameters please refer to [this page](https://www.nextflow.io/docs/latest/cli.html) or use `nextflow run -h`
 
-## 🔍 Output Structure
+## 🔍 Results Directory Structure
 
-Each analysis run creates a timestamped output directory containing:
+**All results are automatically organized in a structured `results/` directory.**
 
-### Core Analysis Files
+Each analysis run creates a timestamped subdirectory with complete analysis outputs:
+
+```
+results/
+├── [INPUT]_w[WINDOW]_s[STEP]_[MODEL]_[TIMESTAMP]/    # Individual run results
+│   ├── analysis_metadata.txt                        # Run parameters
+│   ├── original_alignment_[INPUT].fasta            # Input alignment copy
+│   ├── tree_reconstruction_logs/                   # Detailed logs
+│   └── rooted_trees/                               # MAD rooted trees
+├── best_trees.newick/.nexus                        # Combined tree collections
+├── best_rooted_trees.newick/.nexus                 # Combined rooted trees
+└── pipeline_info/                                  # Execution reports
+```
+
+**Key Benefits:**
+- 🗂️ **Organized**: All outputs in structured directories
+- 🔄 **Reproducible**: Complete metadata and input preservation  
+- 📊 **Accessible**: Summary files for quick analysis
+- ⏰ **Versioned**: Timestamped runs prevent overwrites
+
+For detailed information, see [Results Structure Guide](docs/RESULTS_STRUCTURE.md).
+
+### Analysis Output Files
 
 * **`original_alignment_<filename>.fasta`** - Copy of the input alignment for reproducibility
 * **`analysis_metadata.txt`** - Complete metadata about the analysis parameters and environment

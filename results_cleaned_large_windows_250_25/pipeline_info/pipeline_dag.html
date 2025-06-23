@@ -1,0 +1,154 @@
+<!--
+  ~ Copyright 2013-2024, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+flowchart TB
+    subgraph " "
+    v0["unique_outdir"]
+    v1["inputFileBasename"]
+    v4["alignment"]
+    v5["window_file"]
+    v12["Channel.of"]
+    v28["results_dir"]
+    v37["unique_outdir"]
+    v42["output_format"]
+    v43["unique_outdir"]
+    v44["main_results_dir"]
+    v49["alignment"]
+    v50["unique_outdir"]
+    v60["unique_outdir"]
+    v68["output_formats"]
+    v69["unique_outdir"]
+    v70["main_results_dir"]
+    end
+    subgraph AutomatedWindowSlidingWorkflow
+    subgraph AutomatedWindowSliding
+    v2([GenerateAnalysisMetadata])
+    v6([SlidingWindow])
+    v18([IQTREE2])
+    v29([CollectTrees])
+    v38([MAD_ROOTING])
+    v45([COLLECT_ROOTED_TREES])
+    v51([GENERATE_BACKBONE_TREE])
+    v61([BACKBONE_MIDPOINT_ROOTING])
+    v71([COLLECT_BACKBONE_MIDPOINT_TREES])
+    v9(( ))
+    v10(( ))
+    v21(( ))
+    v23(( ))
+    v25(( ))
+    v31(( ))
+    v39(( ))
+    v41(( ))
+    v54(( ))
+    v63(( ))
+    v65(( ))
+    v67(( ))
+    end
+    end
+    subgraph " "
+    v3[" "]
+    v7[" "]
+    v8[" "]
+    v19[" "]
+    v20[" "]
+    v22[" "]
+    v24[" "]
+    v30[" "]
+    v46[" "]
+    v47[" "]
+    v48[" "]
+    v52[" "]
+    v53[" "]
+    v62[" "]
+    v72[" "]
+    v73[" "]
+    v74[" "]
+    v75[" "]
+    v76[" "]
+    end
+    v0 --> v2
+    v1 --> v2
+    v2 --> v3
+    v4 --> v6
+    v5 --> v6
+    v6 --> v8
+    v6 --> v7
+    v6 --> v9
+    v6 --> v10
+    v6 --> v31
+    v6 --> v54
+    v12 --> v10
+    v9 --> v18
+    v10 --> v18
+    v18 --> v20
+    v18 --> v19
+    v18 --> v21
+    v18 --> v23
+    v18 --> v25
+    v18 --> v31
+    v18 --> v54
+    v21 --> v22
+    v23 --> v24
+    v28 --> v29
+    v25 --> v29
+    v29 --> v30
+    v37 --> v38
+    v31 --> v38
+    v38 --> v39
+    v38 --> v41
+    v42 --> v45
+    v43 --> v45
+    v44 --> v45
+    v39 --> v45
+    v41 --> v45
+    v45 --> v48
+    v45 --> v47
+    v45 --> v46
+    v49 --> v51
+    v50 --> v51
+    v51 --> v61
+    v51 --> v53
+    v51 --> v52
+    v60 --> v61
+    v54 --> v61
+    v61 --> v62
+    v61 --> v63
+    v61 --> v65
+    v61 --> v67
+    v68 --> v71
+    v69 --> v71
+    v70 --> v71
+    v63 --> v71
+    v65 --> v71
+    v67 --> v71
+    v71 --> v76
+    v71 --> v75
+    v71 --> v74
+    v71 --> v73
+    v71 --> v72
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

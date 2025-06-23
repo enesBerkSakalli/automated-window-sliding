@@ -1,0 +1,13 @@
+{
+    "input": "data/enhanced_alignment_combined.fasta",
+    "outdir": "results_enhanced_w200_s2",
+    "window_size": 200,
+    "step_size": 2,
+    "run_mode": "full",
+    "backbone_midpoint_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "max_cpus": 4,
+    "publish_dir_mode": "copy",
+    "keep_tree_files": true
+}

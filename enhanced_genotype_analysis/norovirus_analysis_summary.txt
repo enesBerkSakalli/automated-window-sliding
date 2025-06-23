@@ -1,0 +1,46 @@
+NOROVIRUS GENOTYPE ANALYSIS SUMMARY
+==================================================
+
+Analysis Date: 2025-06-20 10:31:35
+
+BASIC STATISTICS:
+--------------------
+Total sequences analyzed: 86
+Sequences with year information: 86
+Sequences with genotype information: 86
+Unique genotypes found: 17
+Year range: 2004 - 2016
+
+GENOTYPE DISTRIBUTION:
+-------------------------
+GII.P16-GII.4              27 ( 31.4%)
+GII.P7-GII.6               12 ( 14.0%)
+GII.P4-GII.4               11 ( 12.8%)
+GII.Pe-GII.4                9 ( 10.5%)
+GII.Pg-GII.12               5 (  5.8%)
+GII.P16-GII.3               5 (  5.8%)
+GII.P17-GII.17              3 (  3.5%)
+GII.Pe-GII.17               2 (  2.3%)
+GII.P2-GII.2                2 (  2.3%)
+GII.P21-GII.13              2 (  2.3%)
+GII.P15-GII.15              2 (  2.3%)
+GII.P7-GII.14               1 (  1.2%)
+GII.P13-GII.17              1 (  1.2%)
+GII.P21-GII.21              1 (  1.2%)
+GII.P21-GII.3               1 (  1.2%)
+GII.4                       1 (  1.2%)
+GII.Pg-GII.1                1 (  1.2%)
+
+YEAR DISTRIBUTION:
+--------------------
+2004:   3 sequences (  3.5%)
+2005:   2 sequences (  2.3%)
+2006:   4 sequences (  4.7%)
+2007:   7 sequences (  8.1%)
+2008:   9 sequences ( 10.5%)
+2009:   5 sequences (  5.8%)
+2010:   8 sequences (  9.3%)
+2011:   6 sequences (  7.0%)
+2015:  12 sequences ( 14.0%)
+2016:  30 sequences ( 34.9%)
+

@@ -1,14 +1,15 @@
 process COLLECT_ROOTED_TREES {
     label 'process_single'
     
-    publishDir "${params.outdir}/${unique_outdir}", mode: params.publish_dir_mode
-    publishDir "${params.outdir}/", mode: params.publish_dir_mode, pattern: "rooted_trees_collection.*", saveAs: { filename -> filename.replace("rooted_trees_collection", "best_rooted_trees") }
+    publishDir "${main_results_dir}/", mode: params.publish_dir_mode, pattern: "rooted_trees_collection.*", saveAs: { filename -> filename.replace("rooted_trees_collection", "best_rooted_trees") }
+    publishDir "${unique_outdir}/", mode: params.publish_dir_mode
 
     input:
     path rooted_trees
     path mad_logs
-    val unique_outdir
     val output_format
+    val unique_outdir
+    val main_results_dir
 
     output:
     path "rooted_trees_collection.*", emit: rooted_collection

@@ -11,30 +11,42 @@ import argparse
 import pathlib
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
 
-    parser.add_argument('-o', '--output', help="output path", required=True, type=pathlib.Path)
-    parser.add_argument('-i', '--input', help="Input files in newick format. The order of the trees in "
-                                              "the output file is the same as provided as the input file parameter",
-                        required=True, nargs="+", type=pathlib.Path)
-    parser.add_argument('--output-format', help="Output formats separated by a comma. "
-                                                "E.g. 'nexus,newick' or 'nexus'. "
-                                                "Only tested with nexus and newick format.",
-                        required=True, type=str)
+    parser.add_argument(
+        "-o", "--output", help="output path", required=True, type=pathlib.Path
+    )
+    parser.add_argument(
+        "-i",
+        "--input",
+        help="Input files in newick format. The order of the trees in "
+        "the output file is the same as provided as the input file parameter",
+        required=True,
+        nargs="+",
+        type=pathlib.Path,
+    )
+    parser.add_argument(
+        "--output-format",
+        help="Output formats separated by a comma. "
+        "E.g. 'nexus,newick' or 'nexus'. "
+        "Only tested with nexus and newick format.",
+        required=True,
+        type=str,
+    )
 
     args = parser.parse_args()
 
     input_files = args.input
-    output_formats = args.output_format.split(',')
+    output_formats = args.output_format.split(",")
     output_path: pathlib.Path = args.output
 
     trees = dendropy.TreeList()
     labels = []
 
     for file in input_files:
-        trees.read_from_path(file, schema='newick')
-        labels.append(file.stem.split('.')[0])
+        trees.read_from_path(file, schema="newick")
+        labels.append(file.stem.split(".")[0])
 
     for i, tree in enumerate(trees):
         tree.label = labels[i]

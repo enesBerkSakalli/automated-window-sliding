@@ -1,0 +1,225 @@
+IQ-TREE 2.4.0 built Mar  8 2025
+
+Input file name: 101.fasta
+Type of analysis: tree reconstruction
+Random seed number: 980489
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 84 sequences with 225 nucleotide sites
+Number of constant sites: 128 (= 56.8889% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 128 (= 56.8889% of all sites)
+Number of parsimony informative sites: 93
+Number of distinct site patterns: 110
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: GTR+F+I+G4
+
+Rate parameter R:
+
+  A-C: 0.9009
+  A-G: 7.0525
+  A-T: 1.1364
+  C-G: 0.5237
+  C-T: 10.6502
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.2719
+  pi(C) = 0.2299
+  pi(G) = 0.2561
+  pi(T) = 0.2421
+
+Rate matrix Q:
+
+  A    -0.875   0.07918    0.6907    0.1052
+  C   0.09364    -1.131   0.05129    0.9858
+  G    0.7331   0.04603   -0.8716   0.09256
+  T    0.1181     0.936   0.09793    -1.152
+
+Model of rate heterogeneity: Invar+Gamma with 4 categories
+Proportion of invariable sites: 0.489
+Gamma shape alpha: 0.9452
+
+ Category  Relative_rate  Proportion
+  0         0              0.489
+  1         0.2464         0.1277
+  2         0.8995         0.1277
+  3         1.938          0.1277
+  4         4.744          0.1277
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -1721.3155 (s.e. 116.8231)
+Unconstrained log-likelihood (without tree): -872.2275
+Number of free parameters (#branches + #model parameters): 121
+Akaike information criterion (AIC) score: 3684.6310
+Corrected Akaike information criterion (AICc) score: 3971.2717
+Bayesian information criterion (BIC) score: 4097.9791
+
+Total tree length (sum of branch lengths): 2.9322
+Sum of internal branch lengths: 2.2440 (76.5286% of tree length)
+
+WARNING: 19 near-zero internal branches (<0.0044) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+NOTE: Tree is UNROOTED although outgroup taxon 'KR074148.1' is drawn at root
+
++--KR074148.1
+|
+|  +--KR074149.1
++--|
+|  |  +--KR074150.1
+|  +--|
+|     +--KR074170.1
+|
+|                                                                                 +**KR074151.1
+|                                                                              +--|
+|                                                                              |  +--KR074152.1
+|                                                                           +**|
+|                                                                           |  |  +**MF158181.1
+|                                                                           |  +--|
+|                                                                           |     +**MF158182.1
+|                                                                        +--|
+|                                                                        |  |  +**MF158178.1
+|                                                                        |  +--|
+|                                                                        |     +**MF158179.1
+|                                                                     +**|
+|                                                                     |  +--MF158187.1
+|                                                                  +--|
+|                                                                  |  |        +**KR074165.1
+|                                                                  |  |     +**|
+|                                                                  |  |     |  |  +**KR074166.1
+|                                                                  |  |     |  +**|
+|                                                                  |  |     |     +**KR074167.1
+|                                                                  |  |  +--|
+|                                                                  |  |  |  |     +**KR074168.1
+|                                                                  |  |  |  |  +**|
+|                                                                  |  |  |  |  |  +**KR074187.1
+|                                                                  |  |  |  +**|
+|                                                                  |  |  |     +**KR074186.1
+|                                                                  |  +--|
+|                                                                  |     |        +**KR074175.1
+|                                                                  |     |     +**|
+|                                                                  |     |     |  +--KR074176.1
+|                                                                  |     |  +**|
+|                                                                  |     |  |  +**KR074180.1
+|                                                                  |     +--|
+|                                                                  |        +**KR074182.1
+|                                                               +--|
+|                                                               |  |        +**KR074161.1
+|                                                               |  |     +**|
+|                                                               |  |     |  +**KR074162.1
+|                                                               |  |  +--|
+|                                                               |  |  |  +**KR074191.1
+|                                                               |  +--|
+|                                                               |     +--MF158199.1
+|                                                            +--|
+|                                                            |  +**KR074154.1
+|                                                         +--|
+|                                                         |  |  +**KR074174.1
+|                                                         |  +**|
+|                                                         |     +**KR074183.1
+|                                                      +--|
+|                                                      |  +--KR074159.1
+|                                                   +--|
+|                                                   |  |    +**KR074155.1
+|                                                   |  +----|
+|                                                   |       +**KR074171.1
+|                                                +--|
+|                                                |  |      +--KR074153.1
+|                                                |  +------|
+|                                                |         |  +**MF158188.1
+|                                                |         +**|
+|                                                |            +**MF158189.1
+|         +--------------------------------------|
+|         |                                      |                 +**KR074163.1
+|         |                                      |              +**|
+|         |                                      |              |  +**KR074179.1
+|         |                                      |           +**|
+|         |                                      |           |  +**KR074164.1
+|         |                                      |        +--|
+|         |                                      |        |  +**KR074181.1
+|         |                                      |     +--|
+|         |                                      |     |  +--MF158177.1
+|         |                                      |  +--|
+|         |                                      |  |  |        +**KY451971.1
+|         |                                      |  |  |     +**|
+|         |                                      |  |  |     |  |  +**KY451973.1
+|         |                                      |  |  |     |  +**|
+|         |                                      |  |  |     |     |     +--KY451985.1
+|         |                                      |  |  |     |     |  +--|
+|         |                                      |  |  |     |     |  |  +**MF158198.1
+|         |                                      |  |  |     |     +**|
+|         |                                      |  |  |     |        +**MF158192.1
+|         |                                      |  |  |  +**|
+|         |                                      |  |  |  |  +**MF158191.1
+|         |                                      |  |  +--|
+|         |                                      |  |     +--KY451972.1
+|         |                                      +--|
+|         |                                         |  +**KY451986.1
+|         |                                         +--|
+|         |                                            +--KY451987.1
+|     +---|
+|     |   |  +**KR074188.1
+|     |   +--|
+|     |      +--KR074189.1
+|  +**|
+|  |  |     +**KR074156.1
+|  |  |  +**|
+|  |  |  |  +**KR074157.1
+|  |  +--|
+|  |     |     +**KR074160.1
+|  |     |  +--|
+|  |     |  |  +**KR074173.1
+|  |     +--|
+|  |        |  +**KR074172.1
+|  |        +--|
+|  |           +**KR074184.1
++--|
+   +--KR074158.1
+
+Tree in newick format:
+
+(KR074148.1:0.0225171835,(KR074149.1:0.0673627370,(KR074150.1:0.0258303970,KR074170.1:0.0280710890):0.0235059331):0.0076518615,(((((((((((((((KR074151.1:0.0000010167,KR074152.1:0.0086130229):0.0198740651,(MF158181.1:0.0000010167,MF158182.1:0.0000010167):0.0087860292):0.0036296154,(MF158178.1:0.0000010167,MF158179.1:0.0000010167):0.0174717367):0.0309928637,MF158187.1:0.0317489790):0.0033737270,(((KR074165.1:0.0042385763,(KR074166.1:0.0000010167,KR074167.1:0.0000010167):0.0000010167):0.0000010167,((KR074168.1:0.0042347759,KR074187.1:0.0000010167):0.0000027056,KR074186.1:0.0000010167):0.0000010167):0.0442008378,(((KR074175.1:0.0042381008,KR074176.1:0.0085754288):0.0000010167,KR074180.1:0.0000010167):0.0043054278,KR074182.1:0.0042472855):0.0098150196):0.0271773943):0.0661073874,(((KR074161.1:0.0000010167,KR074162.1:0.0000010167):0.0000010167,KR074191.1:0.0000010167):0.0089764756,MF158199.1:0.0857703277):0.0523099754):0.0353087351,KR074154.1:0.0000027107):0.0045355503,(KR074174.1:0.0000010167,KR074183.1:0.0000010167):0.0041286615):0.0068942800,KR074159.1:0.0305011717):0.0447751652,(KR074155.1:0.0000010167,KR074171.1:0.0000010167):0.1509903847):0.0870623504,(KR074153.1:0.0627661070,(MF158188.1:0.0000010167,MF158189.1:0.0000010167):0.0000030126):0.2122160272):0.1118506429,((((((KR074163.1:0.0000010167,KR074179.1:0.0000010167):0.0000010167,KR074164.1:0.0041699483):0.0000010167,KR074181.1:0.0041687223):0.0078699082,MF158177.1:0.0172686272):0.0211740294,(((KY451971.1:0.0000010167,(KY451973.1:0.0000010167,((KY451985.1:0.0047276047,MF158198.1:0.0000010167):0.0047284574,MF158192.1:0.0000010167):0.0000010167):0.0000010167):0.0000010167,MF158191.1:0.0000010167):0.0000010167,KY451972.1:0.0047284760):0.0060724492):0.0078212292,(KY451986.1:0.0000010167,KY451987.1:0.0048136249):0.0111677965):0.0454996702):1.1269635664,(KR074188.1:0.0020643409,KR074189.1:0.0248693353):0.0589933925):0.1371568632,((KR074156.1:0.0000010167,KR074157.1:0.0000010167):0.0000010167,((KR074160.1:0.0000010167,KR074173.1:0.0000010167):0.0085294300,(KR074172.1:0.0041330225,KR074184.1:0.0000010167):0.0086783669):0.0086518195):0.0050299281):0.0000027738,KR074158.1:0.0209557398):0.0072369197);
+
+ALISIM COMMAND
+--------------
+To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
+
+--alisim simulated_MSA -t 101.fasta.treefile -m "GTR{0.90091,7.05251,1.1364,0.523715,10.6502}+F{0.271873,0.229879,0.256149,0.242098}+I{0.489027}+G4{0.945201}" --length 225
+
+To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
+
+iqtree -s 101.fasta --alisim mimicked_MSA
+
+To simulate any number of alignments in either of the two commandlines above, use the --num-alignments options, for example mimic 100 alignments you would use the command line:
+
+iqtree -s 101.fasta --alisim mimicked_MSA --num-alignments 100
+
+For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
+
+TIME STAMP
+----------
+
+Date and time: Sun Jun 22 19:01:03 2025
+Total CPU time used: 17.7845 seconds (0h:0m:17s)
+Total wall-clock time used: 23.7278 seconds (0h:0m:23s)
+

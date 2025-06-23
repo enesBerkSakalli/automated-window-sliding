@@ -1,0 +1,10 @@
+{
+  "input": "/Users/berksakalli/Projects/automated-window-sliding/cleaned_alignment_with_outgroups.fasta",
+  "outdir": "/Users/berksakalli/Projects/automated-window-sliding/results_cleaned_outgroups",
+  "window_size": 200,
+  "step_size": 15,
+  "iqtree_model": "GTR+F+I+G4",
+  "threads": 4,
+  "bootstrap": 1000,
+  "rooting_method": "mad"
+}

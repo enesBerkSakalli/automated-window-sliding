@@ -1,0 +1,74 @@
+IMPROVED NOROVIRUS DETECTIVE ANALYSIS REPORT
+============================================================
+Analysis Date: 2025-06-20 10:52:27
+
+SEQUENCE STATISTICS
+------------------------------
+Total sequences analyzed: 86
+Sequences with genotype: 86 (100.0%)
+Sequences with dual-type: 86 (100.0%)
+Sequences with tree mapping: 86 (100.0%)
+
+TEMPORAL DISTRIBUTION
+------------------------------
+Year range: 2004 - 2016
+  2004: 3 sequences
+  2005: 2 sequences
+  2006: 4 sequences
+  2007: 7 sequences
+  2008: 9 sequences
+  2009: 5 sequences
+  2010: 8 sequences
+  2011: 6 sequences
+  2015: 12 sequences
+  2016: 30 sequences
+
+GENOTYPE DISTRIBUTION
+------------------------------
+  GII.P16-GII.4: 27 (31.4%)
+  GII.P7-GII.6: 12 (14.0%)
+  GII.P4-GII.4: 11 (12.8%)
+  GII.Pe-GII.4: 9 (10.5%)
+  GII.Pg-GII.12: 5 (5.8%)
+  GII.P16-GII.3: 5 (5.8%)
+  GII.P17-GII.17: 3 (3.5%)
+  GII.Pe-GII.17: 2 (2.3%)
+  GII.P2-GII.2: 2 (2.3%)
+  GII.P21-GII.13: 2 (2.3%)
+
+PUBLICATION DISTRIBUTION
+------------------------------
+  Hernández et al. (2016): 28 (32.6%)
+  Silva et al. (2012): 27 (31.4%)
+  Current study: 24 (27.9%)
+  Barreira et al. (2017): 4 (4.7%)
+  Wang et al. (2021): 2 (2.3%)
+  Chen et al. (2017): 1 (1.2%)
+
+MAPPING QUALITY ANALYSIS
+------------------------------
+Average extraction confidence: 0.95
+High confidence (≥0.9): 86
+Medium confidence (0.7-0.9): 0
+Low confidence (<0.7): 0
+
+SAMPLE MAPPINGS (first 10)
+------------------------------
+  KR074148.1 -> KR074148.1_GII.P7-GII.6_2004
+  KR074149.1 -> KR074149.1_GII.P7-GII.14_2004
+  KR074150.1 -> KR074150.1_GII.P7-GII.6_2004
+  KR074151.1 -> KR074151.1_GII.Pe-GII.17_2005
+  KR074152.1 -> KR074152.1_GII.Pe-GII.17_2005
+  KR074153.1 -> KR074153.1_GII.P13-GII.17_2006
+  KR074154.1 -> KR074154.1_GII.P21-GII.21_2007
+  KR074155.1 -> KR074155.1_GII.P2-GII.2_2007
+  KR074156.1 -> KR074156.1_GII.P7-GII.6_2007
+  KR074157.1 -> KR074157.1_GII.P7-GII.6_2007
+
+IMPROVEMENTS MADE
+------------------------------
+✅ Accession numbers preserved in display names
+✅ Duplicate entries deduplicated
+✅ Publication assignments validated
+✅ Enhanced genotype extraction patterns
+✅ Improved tree file mapping accuracy

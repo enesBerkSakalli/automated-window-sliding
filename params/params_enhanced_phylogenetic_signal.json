@@ -1,0 +1,17 @@
+{
+    "input": "cleaned_alignment_combined.fasta",
+    "outdir": "results_enhanced_phylogenetic_signal",
+    "window_size": 258,
+    "step_size": 50,
+    "run_mode": "full",
+    "backbone_midpoint_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "max_cpus": 6,
+    "publish_dir_mode": "copy",
+    "keep_tree_files": true,
+    "bootstrap": 1000,
+    "model_finder_splits": false,
+    "output_windows": true,
+    "output_format": "nexus,newick"
+}

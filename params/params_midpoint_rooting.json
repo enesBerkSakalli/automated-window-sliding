@@ -1,0 +1,9 @@
+{
+    "input": "ingroup_only_alignment.fasta",
+    "outdir": "results_midpoint_rooting",
+    "window_size": 200,
+    "step_size": 15,
+    "mad_rooting": true,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4"
+}

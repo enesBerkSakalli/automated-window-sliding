@@ -1,0 +1,14 @@
+{
+    "input": "enhanced_alignment_with_outgroups.fasta",
+    "window_size": 200,
+    "step_size": 15,
+    "phylo_method": "iqtree2",
+    "model": "GTR+F+I+G4",
+    "phylo_parameters": "-B 1000",
+    "mad_rooting": true,
+    "rootdigger_strategy": "modified-mad",
+    "output_format": "newick,nexus",
+    "keep_tree_files": true,
+    "amb_seqs": "remove",
+    "model_criterion": "bic"
+}

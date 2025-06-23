@@ -1,0 +1,88 @@
+// Nextflow configuration for local execution
+// Optimized for norovirus sliding window analysis
+
+params {
+    // Input and output
+    input = "refined_alignment.fasta"
+    outdir = "results/norovirus_sliding_window_${new Date().format('yyyyMMdd_HHmmss')}"
+    
+    // Sliding window parameters - optimized for 484bp alignment
+    window_size = 75       // ~15.5% of alignment length
+    step_size = 20         // ~4.1% of alignment length
+    
+    // Phylogenetic analysis
+    phylo_method = "iqtree2"
+    model_criterion = "bic"
+    
+    // Tree rooting
+    mad_rooting = true
+    rootdigger_strategy = "modified-mad"
+    rootdigger_exhaustive = false  // Set to true for higher accuracy but slower
+    
+    // Output format
+    output_format = "nexus,newick"
+    
+    // Local execution settings
+    max_memory = "8.GB"
+    max_cpus = 4
+    max_time = "2.h"
+}
+
+// Process configuration for local execution
+process {
+    // Use local Python environment - clean PATH setting
+    beforeScript = "export PATH=\"/Users/berksakalli/Projects/automated-window-sliding/.venv/bin:\$PATH\""
+    
+    // Resource limits
+    memory = "2.GB"
+    cpus = 2
+    time = "30.m"
+    
+    // Specific process configurations
+    withName: 'MODEL_FINDER' {
+        memory = "1.GB"
+        cpus = 1
+        time = "15.m"
+    }
+    
+    withName: 'IQTREE2' {
+        memory = "2.GB" 
+        cpus = 2
+        time = "20.m"
+    }
+    
+    withName: 'MAD_ROOTING' {
+        memory = "1.GB"
+        cpus = 1
+        time = "10.m"
+    }
+}
+
+// Executor configuration
+executor {
+    name = "local"
+    cpus = 4
+    memory = "8.GB"
+}
+
+// Working directory in logs folder
+workDir = "logs/work"
+
+// Report configuration
+report {
+    enabled = true
+    file = "logs/trace/execution_report.html"
+    overwrite = true
+}
+
+timeline {
+    enabled = true
+    file = "logs/trace/execution_timeline.html"
+    overwrite = true
+}
+
+dag {
+    enabled = true
+    file = "logs/trace/pipeline_dag.html"
+    overwrite = true
+}

@@ -1,0 +1,12 @@
+{
+    "input": "refined_alignment.fasta",
+    "outdir": "results_200_15",
+    "window_size": 200,
+    "step_size": 15,
+    "phylo_method": "iqtree2",
+    "model": "GTR+I+G",
+    "phylo_parameters": "-bb 1000",
+    "mad_rooting": true,
+    "rootdigger_strategy": "modified-mad",
+    "rootdigger_exhaustive": false
+}
